@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GameAslan — игровой портал</title>
+
+<style>
+
+* {
+
+    box-sizing: border-box;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    background: #070812;
+
+    color: white;
+
+}
+
+/* ШАПКА */
+
+header {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    background: rgba(7,8,18,.95);
+
+    border-bottom: 1px solid #24263a;
+
+    backdrop-filter: blur(12px);
+
+}
+
+.header {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 18px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+.logo {
+
+    font-size: 25px;
+
+    font-weight: 900;
+
+}
+
+.logo span {
+
+    color: #7c5cff;
+
+}
+
+nav {
+
+    display: flex;
+
+    gap: 25px;
+
+}
+
+nav a {
+
+    color: #b7b9c8;
+
+    text-decoration: none;
+
+}
+
+nav a:hover {
+
+    color: white;
+
+}
+
+/* ГЛАВНЫЙ БАННЕР */
+
+.hero {
+
+    max-width: 1200px;
+
+    margin: 30px auto;
+
+    padding: 20px;
+
+}
+
+.hero-box {
+
+    min-height: 450px;
+
+    padding: 60px;
+
+    border-radius: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+
+        radial-gradient(circle at 85% 30%, #7c5cff66, transparent 35%),
+
+        linear-gradient(135deg,#17132e,#10162d);
+
+    border: 1px solid #3b3561;
+
+}
+
+.hero-content {
+
+    max-width: 650px;
+
+}
+
+.badge {
+
+    display: inline-block;
+
+    padding: 9px 15px;
+
+    margin-bottom: 20px;
+
+    border-radius: 50px;
+
+    color: #b09cff;
+
+    background: #7c5cff22;
+
+    border: 1px solid #7c5cff66;
+
+}
+
+h1 {
+
+    font-size: clamp(45px,8vw,75px);
+
+    line-height: .95;
+
+    margin-bottom: 25px;
+
+}
+
+h1 span {
+
+    color: #7c5cff;
+
+}
+
+.hero p {
+
+    color: #b8bac8;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+}
+
+.button {
+
+    display: inline-block;
+
+    margin-top: 30px;
+
+    padding: 15px 25px;
+
+    background: #7c5cff;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 12px;
+
+    font-weight: bold;
+
+}
+
+.button:hover {
+
+    background: #957dff;
+
+}
+
+/* РАЗДЕЛЫ */
+
+section {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 35px 25px;
+
+}
+
+.title {
+
+    font-size: 32px;
+
+    margin-bottom: 25px;
+
+}
+
+/* ИГРЫ */
+
+.games {
+
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 20px;
+
+}
+
+.game {
+
+    overflow: hidden;
+
+    background: #111320;
+
+    border: 1px solid #282b3e;
+
+    border-radius: 18px;
+
+    transition: .25s;
+
+}
+
+.game:hover {
+
+    transform: translateY(-7px);
+
+    border-color: #765fff;
+
+}
+
+.game-image {
+
+    height: 180px;
+
+    padding: 18px;
+
+    display: flex;
+
+    align-items: end;
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+}
+
+.fortnite {
+
+    background: linear-gradient(135deg,#6639aa,#18295a);
+
+}
+
+.minecraft {
+
+    background: linear-gradient(135deg,#27704e,#162d37);
+
+}
+
+.gta {
+
+    background: linear-gradient(135deg,#9a4935,#21192c);
+
+}
+
+.cs {
+
+    background: linear-gradient(135deg,#805a2b,#171a28);
+
+}
+
+.roblox {
+
+    background: linear-gradient(135deg,#a93232,#251725);
+
+}
+
+.fc {
+
+    background: linear-gradient(135deg,#236987,#161a2d);
+
+}
+
+.game-info {
+
+    padding: 18px;
+
+}
+
+.game-info h3 {
+
+    margin-bottom: 8px;
+
+    font-size: 21px;
+
+}
+
+.game-info p {
+
+    color: #9296a8;
+
+}
+
+.rating {
+
+    margin-top: 12px;
+
+    color: #ffd45c;
+
+}
+
+/* НОВОСТИ */
+
+.news {
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap: 20px;
+
+}
+
+.news-card {
+
+    padding: 25px;
+
+    background: #111320;
+
+    border: 1px solid #282b3e;
+
+    border-radius: 18px;
+
+}
+
+.news-card h3 {
+
+    font-size: 23px;
+
+    margin: 10px 0;
+
+}
+
+.news-card p {
+
+    color: #aaadbc;
+
+    line-height: 1.6;
+
+}
+
+.date {
+
+    color: #8c73ff;
+
+    font-size: 13px;
+
+}
+
+/* ТОП */
+
+.top {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+.top-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 17px;
+
+    background: #111320;
+
+    border: 1px solid #282b3e;
+
+    border-radius: 14px;
+
+}
+
+.number {
+
+    width: 40px;
+
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #7c5cff22;
+
+    color: #ad99ff;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+
+}
+
+/* О САЙТЕ */
+
+.about {
+
+    padding: 30px;
+
+    background: #111320;
+
+    border: 1px solid #282b3e;
+
+    border-radius: 20px;
+
+    color: #adb0bf;
+
+    line-height: 1.7;
+
+}
+
+/* FOOTER */
+
+footer {
+
+    margin-top: 60px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    border-top: 1px solid #24263a;
+
+    color: #777b8d;
+
+}
+
+footer strong {
+
+    color: #7c5cff;
+
+}
+
+/* ТЕЛЕФОН */
+
+@media(max-width:800px) {
+
+    nav {
+
+        display: none;
+
+    }
+
+    .hero-box {
+
+        padding: 40px 25px;
+
+    }
+
+    .games {
+
+        grid-template-columns: repeat(2,1fr);
+
+    }
+
+    .news {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+@media(max-width:550px) {
+
+    .games {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .hero {
+
+        padding: 15px;
+
+    }
+
+    .hero-box {
+
+        min-height: 420px;
+
+    }
+
+    section {
+
+        padding-left: 15px;
+
+        padding-right: 15px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="header">
+
+    <div class="logo">
+
+        🎮 <span>Game</span>Aslan
+
+    </div>
+
+    <nav>
+
+        <a href="#games">Игры</a>
+
+        <a href="#news">Новости</a>
+
+        <a href="#top">Топ игр</a>
+
+        <a href="#about">О сайте</a>
+
+    </nav>
+
+</div>
+
+</header>
+
+<!-- ГЛАВНЫЙ ЭКРАН -->
+
+<div class="hero">
+
+<div class="hero-box">
+
+<div class="hero-content">
+
+<div class="badge">
+
+🎮 ИГРОВОЙ ПОРТАЛ
+
+</div>
+
+<h1>
+
+Твой мир игр —
+
+<span>GameAslan</span>
+
+</h1>
+
+<p>
+
+Новости, игры, обзоры, рейтинги
+
+и всё самое интересное
+
+из мира видеоигр.
+
+</p>
+
+<a href="#games" class="button">
+
+Смотреть игры →
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ИГРЫ -->
+
+<section id="games">
+
+<h2 class="title">
+
+🔥 Популярные игры
+
+</h2>
+
+<div class="games">
+
+<div class="game">
+
+<div class="game-image fortnite">
+
+Fortnite
+
+</div>
+
+<div class="game-info">
+
+<h3>Fortnite</h3>
+
+<p>Battle Royale · Экшен</p>
+
+<div class="rating">⭐ 9.4 / 10</div>
+
+</div>
+
+</div>
+
+<div class="game">
+
+<div class="game-image minecraft">
+
+Minecraft
+
+</div>
+
+<div class="game-info">
+
+<h3>Minecraft</h3>
+
+<p>Песочница · Выживание</p>
+
+<div class="rating">⭐ 9.7 / 10</div>
+
+</div>
+
+</div>
+
+<div class="game">
+
+<div class="game-image gta">
+
+GTA V
+
+</div>
+
+<div class="game-info">
+
+<h3>Grand Theft Auto V</h3>
+
+<p>Открытый мир · Экшен</p>
+
+<div class="rating">⭐ 9.5 / 10</div>
+
+</div>
+
+</div>
+
+<div class="game">
+
+<div class="game-image cs">
+
+CS2
+
+</div>
+
+<div class="game-info">
+
+<h3>Counter-Strike 2</h3>
+
+<p>Шутер · Онлайн</p>
+
+<div class="rating">⭐ 9.2 / 10</div>
+
+</div>
+
+</div>
+
+<div class="game">
+
+<div class="game-image roblox">
+
+Roblox
+
+</div>
+
+<div class="game-info">
+
+<h3>Roblox</h3>
+
+<p>Платформа · Онлайн</p>
+
+<div class="rating">⭐ 9.1 / 10</div>
+
+</div>
+
+</div>
+
+<div class="game">
+
+<div class="game-image fc">
+
+EA SPORTS FC
+
+</div>
+
+<div class="game-info">
+
+<h3>EA SPORTS FC</h3>
+
+<p>Футбол · Спорт</p>
+
+<div class="rating">⭐ 8.9 / 10</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- НОВОСТИ -->
+
+<section id="news">
+
+<h2 class="title">
+
+📰 Новости
+
+</h2>
+
+<div class="news">
+
+<div class="news-card">
+
+<div class="date">
+
+GAMEASLAN NEWS
+
+</div>
+
+<h3>
+
+Добро пожаловать на GameAslan!
+
+</h3>
+
+<p>
+
+GameAslan — новый игровой портал.
+
+Здесь будут новости, обзоры,
+
+обновления игр и интересные события.
+
+</p>
+
+</div>
+
+<div class="news-card">
+
+<div class="date">
+
+НОВИНКА
+
+</div>
+
+<h3>
+
+Сайт запущен!
+
+</h3>
+
+<p>
+
+Первая версия GameAslan уже работает.
+
+Впереди много новых функций.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ТОП -->
+
+<section id="top">
+
+<h2 class="title">
+
+🏆 Топ игр
+
+</h2>
+
+<div class="top">
+
+<div class="top-item">
+
+<div class="number">1</div>
+
+<div>
+
+<strong>Minecraft</strong>
+
+<br>
+
+<small>Песочница · Выживание</small>
+
+</div>
+
+</div>
+
+<div class="top-item">
+
+<div class="number">2</div>
+
+<div>
+
+<strong>GTA V</strong>
+
+<br>
+
+<small>Открытый мир · Экшен</small>
+
+</div>
+
+</div>
+
+<div class="top-item">
+
+<div class="number">3</div>
+
+<div>
+
+<strong>Fortnite</strong>
+
+<br>
+
+<small>Battle Royale</small>
+
+</div>
+
+</div>
+
+<div class="top-item">
+
+<div class="number">4</div>
+
+<div>
+
+<strong>Counter-Strike 2</strong>
+
+<br>
+
+<small>Шутер · Онлайн</small>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- О САЙТЕ -->
+
+<section id="about">
+
+<h2 class="title">
+
+ℹ️ О GameAslan
+
+</h2>
+
+<div class="about">
+
+<strong>GameAslan</strong> — игровой портал
+
+для любителей видеоигр.
+
+<br><br>
+
+Здесь будут новости, обзоры,
+
+рейтинги, информация об играх,
+
+трейлеры и многое другое.
+
+<br><br>
+
+🚀 Это только начало!
+
+</div>
+
+</section>
+
+<footer>
+
+🎮 <strong>GameAslan</strong>
+
+<br><br>
+
+© 2026 GameAslan
+
+</footer>
+
+</body>
+
+</html>
